@@ -1,3 +1,7 @@
+## Show NetApp trident CRDs and CSI Controllers
+kubectl get crd | grep trident.netapp.io
+kubectl get deploy -n trident 
+kubectl get ds -n trident 
 
 ## Create SC, basic PVC and connect a POD
 kubectl create -f nas-sg.yaml
@@ -14,6 +18,7 @@ kubectl get pods | grep snapshot
 ## Create VSC and Snapshots
 kubectl create -f vsc.yaml
 kubectl create -f snap.yaml
+
 ## Execute into the POD and create a file
 kubectl exec -it centos-pod bash
 ## touch /data/vol1/cvo_webinar_new_file.txt
