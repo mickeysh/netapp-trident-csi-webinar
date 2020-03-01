@@ -1,0 +1,17 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: centos-pod-snap
+spec:
+  volumes:
+    - name: vol1
+      persistentVolumeClaim:
+       claimName: from-ontapnas-snap-1
+  containers:
+    - name: centos
+      image: centos:latest
+      command: ["/bin/sh"]
+      args: ["-c", "echo Container has been set up on $(date -u) >> /data/vol1/logger && sleep 60m"]
+      volumeMounts:
+        - mountPath: "/data/vol1"
+          name: vol1
