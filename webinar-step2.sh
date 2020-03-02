@@ -9,8 +9,8 @@ kubectl get pods | grep snapshot
 ## Create VSC and Snapshots
 echo "Create VolumeSnapshotClass and Snapshot "
 echo "======================================= "
-kubectl create -f step2-snapshot/vsc.yaml
-kubectl create -f step2-snapshot/snap.yaml
+kubectl create -f step3-clone/vsc.yaml
+kubectl create -f step3-clone/snap.yaml
 sleep 10
 kubectl get volumesnapshotclass 
 kubectl get volumesnapshots
