@@ -14,4 +14,7 @@ echo "============================= "
 kubectl create -f step1-pvc/pod.yaml
 sleep 10
 ## Execute into the POD and create a file
-kubectl exec -it centos-pod bash
+echo "centos-pod: touch /data/vol1/cvo_webinar.txt"
+kubectl exec -it centos-pod touch /data/vol1/cvo_webinar.txt
+echo "centos-pod: ls /data/vol1/"
+kubectl exec -it centos-pod ls /data/vol1/

@@ -9,8 +9,12 @@ echo "Create VolumeSnapshotClass and Snapshot "
 echo "======================================= "
 kubectl create -f step2-snapshot/vsc.yaml
 kubectl create -f step2-snapshot/snap.yaml
+sleep 10
 kubectl get volumesnapshotclass 
 kubectl get volumesnapshots
 
 ## Execute into the POD and create a file
-kubectl exec -it centos-pod bash
+echo "centos-pod: touch /data/vol1/cvo_webinar_new_file.txt"
+kubectl exec -it centos-pod touch /data/vol1/cvo_webinar_new_file.txt
+echo "centos-pod: ls /data/vol1/"
+kubectl exec -it centos-pod ls /data/vol1/
